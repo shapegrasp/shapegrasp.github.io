@@ -6,7 +6,7 @@
     <meta name="description" content="Sample-Efficient Learning of Novel Visual Concepts">
     <meta name="keywords" content="Action Anticipation, Transformers, Human-Robot Collaboration">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Let Me Help You! Neuro-Symbolic Short-Context Action Anticipation</title>
+    <title>ShapeGrasp: Zero-Shot Object Grasping with Large Language Models via Shape Affordance Reasoning</title>
     <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
     <link rel="stylesheet" href="./static/css/bulma.min.css">
     <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
@@ -29,41 +29,16 @@
             <div class="container is-max-desktop">
                 <div class="columns is-centered">
                     <div class="column has-text-centered">
-                        <h1 class="title is-1 publication-title"><i>Let Me Help You!</i> <br> Neuro-Symbolic Short-Context Action Anticipation </h1>
+                        <h1 class="title is-1 publication-title"><i>ShapeGrasp:</i> Zero-Shot Object Grasping with Large Language Models via Shape Affordance Reasoning</h1>
                         <div class="is-size-5 publication-authors">
-                            <span class="author-block"><a href="https://sarthak268.github.io/">Sarthak Bhagat</a>,</span>
-                            <span class="author-block"></span><a href="https://www.linkedin.com/in/samuelwli/">Samuel Li</a>,</span>
-                            <span class="author-block"><a href="https://sites.google.com/asu.edu/jcampbell/">Joseph Campbell</a>,</span>
-                            <span class="author-block"><a href="https://yaqi-xie.me/">Yaqi Xie</a>,</span>
-                            <span class="author-block"><a href="https://en.wikipedia.org/wiki/Katia_Sycara">Katia Sycara</a>,</span>
-                            <span class="author-block"><a href="https://simonstepputtis.com">Simon Stepputtis</a></span>
+                            <span class="author-block"><a href="">Anonymous Authors</a></span>
                         </div>
                         <div class="is-size-5 publication-authors">
-                            <span class="author-block">The Robotics Institute, Carnegie Melon University</span>
+                            <span class="author-block">Anonymous Organization</span>
                         </div>
                         <div class="column has-text-centered">
                             <div class="publication-links">
                                 
-                                <!-- <span class="link-block">
-                                    <a href="https://arxiv.org/abs/2306.09482"
-                                        class="external-link button is-normal is-rounded is-dark">
-                                        <span class="icon">
-                                            <i class="fas fa-file-pdf"></i>
-                                        </span>
-                                <span>arXiv Paper</span>
-                                </a> -->
-
-                                </span>
-                                <span class="link-block">
-                                    <a href="https://drive.google.com/drive/folders/1gfhkG3zDmewIR4CnO7KbSB1Kwvu15jl0?usp=sharing"
-                                        class="external-link button is-normal is-rounded is-dark">
-                                        <span class="icon">
-                                            <i class="fab fa-file-pdf"></i>
-                                        </span>
-                                <span>Dataset</span>
-                                </a>
-                                </span>
-
                                 <span class="link-block">
                                     <a href=""
                                         class="external-link button is-normal is-rounded is-dark">
@@ -84,13 +59,6 @@
 
     <section class="section">
         <div class="container is-max-desktop">
-            <!-- <div class="columns is-centered">
-                <div class="column">
-                    <div class="content">
-                        <img src="static/assets/animation.gif" alt="Simulation task" width="70%" style="margin-left: 15%;">
-                    </div>
-                </div>
-            </div> -->
 
             <!-- Abstract. -->
             <div class="columns is-centered has-text-centered">
@@ -98,30 +66,12 @@
                     <h2 class="title is-3">Abstract</h2>
                     <div class="content has-text-justified">
                         <p>
-                        In an era where robots become available to the general public, the applicability of assistive robotics extends across numerous aspects of daily life, including in-home robotics.
-                        This work presents a novel approach for such systems, leveraging long-horizon action anticipation from short-observation contexts.
-                        In an assistive cooking task, we demonstrate that predicting human intention leads to effective collaboration between humans and robots.
-                        Compared to prior approaches, our method halves the required observation time of human behavior before accurate future predictions can be made, thus, allowing for quick and effective task support from short contexts. 
-                        To provide sufficient context in such scenarios, our proposed method analyzes the human user and their interaction with surrounding scene objects by imbuing the system with additional domain knowledge, encoding the scene object's affordances. 
-                        We integrate this knowledge into a transformer-based action anticipation architecture, which alters the attention mechanism between different visual features by either boosting or attenuating the attention between them. 
-                        Through this approach, we achieve an up to $9\%$ improvement on two common action anticipation benchmarks, namely 50Salads and Breakfast.
-                        After predicting a sequence of future actions, our system selects an appropriate assistive action that is subsequently executed on a robot for a joint salad preparation task between a human and a robot. 
+                        abstract goes here
                         </p>
                     </div>
                 </div>
             </div>
-            <!--/ Abstract. -->
 
-            <!-- Paper video. -->
-            <!-- <div class="columns is-centered has-text-centered">
-                <div class="column is-four-fifths">
-                    <h2 class="title is-3">Introduction Video (7 Minutes)</h2>
-                    <div class="publication-video">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/S4GyhYA7HtE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div> -->
-            <!--/ Paper video. -->
         </div>
     </section>
 
@@ -133,37 +83,15 @@
                 <div class="rows is-centered ">
                     <di v class="row is-full-width">
 
-                        <h2 class="title is-3"><span class="dcliport">Neuro-Symbolic Short-Context Action Anticipation</span></h2>
+                        <h2 class="title is-3"><span class="dcliport">Section </span></h2>
 
                         <div class="content has-text-justified">
                             <p>
-                                We employ a graph propagation approach to discern relevant affordances linked to each object in the scene and the necessary tools to afford them in the desired manner. 
-                                The representations for these objects and affordances are then used to adjust attention for visual features in both the transformer encoder and decoder. 
-                                Subsequently, we derive a sequence of actions predicted to occur in the future part of the video.
-                                The robot executes actions for which our model expresses sufficient confidence, utilizing the skill library (outlined in the section below) to assist the human.
+                                description
                             </p>
 
                         </div>
                         
-                        <!-- <div class="container is-max-desktop">
-
-                            <div class="columns is-centered">
-                                <div class="column">
-                                    <div class="content">
-                                        <img src="static/assets/overview.png" alt="overview" width="40%">
-                                    </div>
-                                </div> 
-                            </div>
-
-                            <div class="columns is-centered">
-                                <div class="column">
-                                    <div class="content">
-                                        <img src="static/assets/tech_overview.png" alt="overview" width="40%">
-                                    </div>
-                                </div> 
-                            </div>
-
-                        </div>-->
 
                         <div class="columns is-centered">
                             <div class="column">
@@ -173,223 +101,14 @@
                                     </center>
                                 </div>
                             </div>
-
-                            <!-- <div class="column">
-                                <div class="content">
-                                    <img src="static/assets/tech_overview.png" alt="Tech Overview" width="100%">
-                                </div>
-                            </div> -->
-                            
+    
                         </div>
                     </div>
-
-
-                        <h2 class="title is-3"><span class="dcliport">Human-Robot Collaboration Demonstration</span></h2>
-
-
-                        <!-- <h3 class="title is-4">Approach</h3> -->
-                        <div class="content has-text-justified">
-                            <p>
-                                We present a sample video showcasing the humans robot collaboration facilitated by our system. 
-                                In this scenario, a robot observes human actions through a top-view RGB camera. 
-                                It employs our novel neurosymbolic action anticipation framework, NeSCA, to predict the sequence of actions that the human will most likely do. 
-                                Subsequently, the robot assists the individual by executing actions it is confident about based on its predictions.
-                            </p>
-
-                        </div>
-                        <!-- <section class="section"> -->
-                        <div class="container is-max-desktop">
-
-                            <div class="columns is-centered">
-
-                                <!-- Visual Effects. -->
-                                <div class="column">
-                                    <div class="content">
-                                        <video width="100%" controls>
-                                            <source src="static/assets/NeSCA-final-video_5.mp4" type="video/mp4" width="50%">
-                                        </video>
-                                    </div>
-                                </div> 
-
-                                <!--/ Visual Effects. -->
-
-                                <!-- Matting. -->
-                                <!-- <div class="column">
-                                    <h2 class="title is-5">Learning Novel Affordances</h2>
-                                    <div class="columns is-centered">
-                                        <div class="column content">
-                                            <img src="static/assets/node_addition_aff.png" alt="Novel Affordances" width="100%">
-                                            <p>
-                                                Novel affordances are learned in a five- and fifteen-shot manner. Results are reported on 100 test images, 50 of which showed the novel concept.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div> -->
-                            </div>
-                        </div>
-
-
-                        <h2 class="title is-3"><span class="dcliport">Skill Library</span></h2>
-
-
-                        <!-- <h3 class="title is-4">Approach</h3> -->
-                        <div class="content has-text-justified">
-                            <p>
-                                We perform the actions anticipated by NeSCA by utilizing a pre-defined skill library {S<sub>0</sub>, S<sub>1</sub>, S<sub>2</sub> ... S<sub>m</sub>} where each high-level skill S<sub>i</sub> corresponds to a specific sequence of low-level control inputs.
-                                The skills in the library are broadly categorized into three "grasp types": a top-down grasp, suitable for pick-and-place actions with items like vegetables; a sideways grasp, ideal for picking up and pouring objects such as olive oil or vinegar bottles; and an aligned grasp, designed for handling oriented tools like knives and spatulas. 
-                                The aligned grasp feature is specifically engineered to bring and hand over tools to a human collaborator. In this process, the robot first brings the instructed tool near the potential area of use for easy accessibility. 
-                            </p>
-
-                        </div>
-                        <!-- <section class="section"> -->
-                        <div class="container is-max-desktop">
-
-                            <div class="columns is-centered">
-
-                                <div class="column">
-                                    <div class="content">
-                                        <h4 class="title is-5">Add Vinegar</h4>
-                                        <img src="static/assets/skill_add_vinegar_com.gif" alt="sample_video_1" width="100%">
-                                    </div>
-                                </div>
-
-                                <div class="column">
-                                    <div class="content">
-                                        <h4 class="title is-5">Hand Over Spatula</h4>
-                                        <img src="static/assets/skill_hand_over_com.gif" alt="sample_video_2" width="100%">
-                                    </div>
-                                </div>
-
-                                <div class="column">
-                                    <div class="content">
-                                        <h4 class="title is-5">Pick & Place Tomato</h4>
-                                        <img src="static/assets/skill_put_tomato_com.gif" alt="sample_video_2" width="100%">
-                                    </div>
-                                </div>
-
-                                <div class="column">
-                                    <div class="content">
-                                        <h4 class="title is-5">Add Pepper</h4>
-                                        <img src="static/assets/skill_add_pepper_com.gif" alt="sample_video_3" width="100%">
-                                    </div>
-                                </div>
-                            </div>
-                        
-                            <br>
-
-                            <div class="columns is-centered">
-                                <div class="column">
-                                    <div class="content">
-                                        <h4 class="title is-5">Pick & Place Cheese</h2>
-                                        <img src="static/assets/skill_pick_cheese_com.gif" alt="sample_video_4" width="100%">
-                                    </div>
-                                </div>
-
-                                <div class="column">
-                                    <div class="content">
-                                        <h4 class="title is-5">Add Dressing</h2>
-                                        <img src="static/assets/skill_add_dressing_com.gif" alt="sample_video_5" width="100%">
-                                    </div>
-                                </div>
-
-                                <div class="column">
-                                    <div class="content">
-                                        <h4 class="title is-5">Pick & Place Cucumber</h2>
-                                        <img src="static/assets/skill_put_cucumber_com.gif" alt="sample_video_6" width="100%">
-                                    </div>
-                                </div>
-
-                                <div class="column">
-                                    <div class="content">
-                                        <h4 class="title is-5">Add Salt</h2>
-                                        <img src="static/assets/skill_add_salt_com.gif" alt="sample_video_7" width="100%">
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-
-
-                        <h2 class="title is-3"><span class="dcliport">Dummy Kitchen Action Anticipation Dataset</span></h2>
-
-
-                        <!-- <h3 class="title is-4">Approach</h3> -->
-                        <div class="content has-text-justified">
-                            <p>
-                                We open-source the collected trajectories in our real-world kitchen setup. This dataset promotes the application of action anticipation from videos for the purpose of real-world human robot interaction. 
-                            </p>
-
-                        </div>
-                        <!-- <section class="section"> -->
-                        <div class="container is-max-desktop">
-                            <h2 class="title is-5">Sample videos from the dataset</h2>
-
-                            <div class="columns is-centered">
-
-                                <!-- Visual Effects. -->
-                                <div class="column">
-                                    <div class="content">
-                                        <img src="static/assets/sample_video1_com.gif" alt="sample_video_1_1" width="100%" class="sample-video">
-                                    </div>
-                                </div>
-
-                                <div class="column">
-                                    <div class="content">
-                                        <img src="static/assets/sample_video2_com.gif" alt="sample_video_1_2" width="100%" >
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-
-                        <h2 class="title is-5">Download our dataset !</h2>
-                        <div class="column">
-                            <div class="content">
-                                <button onclick="downloadVideo1()">Download Videos</button>
-                                <button onclick="downloadVideo2()">Download Labels</button>
-                            </div>
-                        </div>
-
-                        <script>
-                            function downloadVideo1() {
-                                // Replace 'video1_url' with the actual URL of the first video file
-                                var video1Url = 'https://drive.google.com/file/d/1MCEs-HUIhxo6s7g8pgOYqrJWFU9gh8dI/view?usp=sharing';
-                                var link = document.createElement('a');
-                                link.href = video1Url;
-                                link.download = 'video1.mp4';
-                                link.click();
-                            }
-                    
-                            function downloadVideo2() {
-                                // Replace 'video2_url' with the actual URL of the second video file
-                                var video2Url = 'https://drive.google.com/file/d/1V0QpaVa4ZqH_g1T_St8GmXko-EUUzPFi/view?usp=sharing';
-                                var link = document.createElement('a');
-                                link.href = video2Url;
-                                link.download = 'video2.mp4';
-                                link.click();
-                            }
-                        </script>
-                    
 
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- <section class="section" id="BibTeX">
-        <div class="container is-max-desktop content">
-            <h2 class="title">BibTeX</h2>
-            <pre><code>@misc{bhagat2023sampleefficient,
-      title={Sample-Efficient Learning of Novel Visual Concepts}, 
-      author={Sarthak Bhagat and Simon Stepputtis and Joseph Campbell and Katia Sycara},
-      year={2023},
-      eprint={2306.09482},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
-        }</code></pre>
-        </div>
-    </section> -->
 
 
     <footer class="footer">
