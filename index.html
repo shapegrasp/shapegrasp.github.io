@@ -21,6 +21,16 @@
     <script src="./static/js/index.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+      /* CSS for styling */
+      #image-slider {
+        width: 300px;
+        margin: 20px auto;
+      }
+      #image-display {
+        width: 100%;
+      }
+    </style>
 </head>
 
 <body>
@@ -144,6 +154,41 @@
                                             <video playsinline autoplay loop muted src="./static/cropped_videos/corkscrew.mp4" style="border-radius: 10px;"></video>
                                             <center><div class="caption">Pick up the corkscrew.</div></center>
                                           </div>
+                                          <!-- <div class="col" style="margin-right: 20px;">
+                                            <video playsinline autoplay loop muted src="./static/cropped_videos/screwdriver.mp4" style="border-radius: 10px;"></video>
+                                            <center><div class="caption">Pick up the screwdriver.</div></center>
+                                          </div>
+                                          <div class="col" style="margin-right: 20px;">
+                                            <video playsinline autoplay loop muted src="./static/cropped_videos/soldering.mp4" style="border-radius: 10px;"></video>
+                                            <center><div class="caption">Pick up the soldering iron.</div></center>
+                                          </div> -->
+                                        </div>
+                                      </div>
+                                      <br>
+                                    </td>
+                                  </tr>
+                                </div> 
+                              </div>
+                            </div>
+                          </section>
+
+                          <section class="section">
+                            <div class="container">
+                              <div class="columns is-centered">
+                                <div class="column is-full-width">
+                                  <!-- <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Tools</h2> -->
+                                  <tr>
+                                    <td>
+                                      <div class="row">
+                                        <div class="columns is-centered">
+                                          <!-- <div class="col" style="margin-right: 20px;">
+                                              <video playsinline autoplay loop muted src="./static/cropped_videos/hammer.mp4" style="border-radius: 10px;"></video>
+                                              <center><div class="caption">Swing the hammer.</div></center>
+                                          </div>
+                                          <div class="col" style="margin-right: 20px;">
+                                            <video playsinline autoplay loop muted src="./static/cropped_videos/corkscrew.mp4" style="border-radius: 10px;"></video>
+                                            <center><div class="caption">Pick up the corkscrew.</div></center>
+                                          </div> -->
                                           <div class="col" style="margin-right: 20px;">
                                             <video playsinline autoplay loop muted src="./static/cropped_videos/screwdriver.mp4" style="border-radius: 10px;"></video>
                                             <center><div class="caption">Pick up the screwdriver.</div></center>
@@ -260,6 +305,41 @@
                                             <video playsinline autoplay loop muted src="./static/cropped_videos/flower.mp4" style="border-radius: 10px;"></video>
                                             <center><div class="caption">Give the red rose.</div></center>
                                           </div>
+                                          <!-- <div class="col" style="margin-right: 20px;">
+                                            <video playsinline autoplay loop muted src="./static/cropped_videos/extension.mp4" style="border-radius: 10px;"></video>
+                                            <center><div class="caption">Pick up the power strip.</div></center>
+                                          </div>
+                                          <div class="col" style="margin-right: 20px;">
+                                            <video playsinline autoplay loop muted src="./static/cropped_videos/measuringtape.mp4" style="border-radius: 10px;"></video>
+                                            <center><div class="caption">Pick up the tape measure.</div></center>
+                                          </div> -->
+                                        </div>
+                                      </div>
+                                      <br>
+                                    </td>
+                                  </tr>
+                                </div> 
+                              </div>
+                            </div>
+                          </section>
+
+                          <section class="section">
+                            <div class="container">
+                              <div class="columns is-centered">
+                                <div class="column is-full-width">
+                                  <!-- <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Unusual Objects</h2> -->
+                                  <tr>
+                                    <td>
+                                      <div class="row">
+                                        <div class="columns is-centered">
+                                          <!-- <div class="col" style="margin-right: 20px;">
+                                              <video playsinline autoplay loop muted src="./static/cropped_videos/tissue.mp4" style="border-radius: 10px;"></video>
+                                              <center><div class="caption">Dispense a tissue.</div></center>
+                                          </div>
+                                          <div class="col" style="margin-right: 20px;">
+                                            <video playsinline autoplay loop muted src="./static/cropped_videos/flower.mp4" style="border-radius: 10px;"></video>
+                                            <center><div class="caption">Give the red rose.</div></center>
+                                          </div> -->
                                           <div class="col" style="margin-right: 20px;">
                                             <video playsinline autoplay loop muted src="./static/cropped_videos/extension.mp4" style="border-radius: 10px;"></video>
                                             <center><div class="caption">Pick up the power strip.</div></center>
@@ -278,11 +358,62 @@
                             </div>
                           </section>
 
+                          <section class="section">
+                            <div class="container">
+                              <div class="columns is-centered">
+                                <div class="column is-full-width">
+                                  <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Varying Threshold</h2>
+                                  <tr>
+                                    <td>
+                                    <!-- Slider -->
+                                    <center>
+                                    <input type="range" min="0.01" max="1.0" value="0.01" id="image-slider">
+                                    </center>
+                            
+                                    <!-- Image Display -->
+                                    <center>
+                                    <div id="image-display">
+                                      <img src="./static/slider_img/black_sunglasses1_3d_object_0.01.png" id="slider-image">
+                                    </div>
+                                    </center>
+                                    </td>
+                                  </tr>
+                                </div> 
+                              </div>
+                            </div>
+                          </section>
                     </div>
-
                 </div>
             </div>
         </div>
+
+        <script>
+          // JavaScript to change image based on slider value
+          document.getElementById("image-slider").addEventListener("input", function() {
+            var sliderValue = this.value;
+            var image = document.getElementById("slider-image");
+            var imagePath;
+          
+            // Set image path based on slider value
+            switch (sliderValue) {
+              case "0.01":
+                imagePath = "./static/slider_img/black_sunglasses1_3d_object_0.01.png";
+                break;
+              case "0.05":
+                imagePath = "./static/slider_img/black_sunglasses1_3d_object_0.05.png";
+                break;
+              case "0.1":
+                imagePath = "./static/slider_img/black_sunglasses1_3d_object_0.1.png";
+                break;
+              default:
+                imagePath = "./static/slider_img/black_sunglasses1_3d_object_0.01.png";
+            }
+          
+            // Change image source
+            image.src = imagePath;
+          });
+        </script>
+
     </section>
 
 </body>
