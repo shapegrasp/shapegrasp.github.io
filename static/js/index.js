@@ -1,79 +1,40 @@
-window.HELP_IMPROVE_VIDEOJS = false;
+document.addEventListener("DOMContentLoaded", function() {
+  const slider = document.getElementById("myRange");
+  const sliderImage = document.getElementById("sliderImage");
 
-var INTERP_BASE = "https://homes.cs.washington.edu/~kpar/nerfies/interpolation/stacked";
-var NUM_INTERP_FRAMES = 240;
+  // Mapping of specific values to their corresponding image paths
+  const imagePaths = {
+    100: "./static/slider_img/black_sunglasses1_3d_object_1.png",
+    90: "./static/slider_img/black_sunglasses1_3d_object_0.9.png",
+    70: "./static/slider_img/black_sunglasses1_3d_object_0.7.png",
+    55: "./static/slider_img/black_sunglasses1_3d_object_0.55.png",
+    20: "./static/slider_img/black_sunglasses1_3d_object_0.2.png",
+    15: "./static/slider_img/black_sunglasses1_3d_object_0.15.png",
+    10: "./static/slider_img/black_sunglasses1_3d_object_0.1.png",
+    5: "./static/slider_img/black_sunglasses1_3d_object_0.05.png",
+    1: "./static/slider_img/black_sunglasses1_3d_object_0.01.png",
+  };
 
-var interp_images = [];
+  slider.oninput = function() {
+    let value = this.value;
+    // Round the value to the nearest valid option
+    value = findClosestValue(value);
+    // Set the image source based on the rounded value
+    sliderImage.src = imagePaths[value];
+    
+    // sliderValueText.textContent = "Slider Value: " + value;
 
-function preloadInterpolationImages() {
-    for (var i = 0; i < NUM_INTERP_FRAMES; i++) {
-        var path = INTERP_BASE + '/' + String(i).padStart(6, '0') + '.jpg';
-        interp_images[i] = new Image();
-        interp_images[i].src = path;
-    }
-}
+    // Debug: Print slider value and corresponding image path
+    // console.log("Slider Value:", value);
+    // console.log("Image Path:", imagePaths[value]);
+  };
 
-function setInterpolationImage(i) {
-    var image = interp_images[i];
-    image.ondragstart = function() { return false; };
-    image.oncontextmenu = function() { return false; };
-    $('#interpolation-image-wrapper').empty().append(image);
-}
-
-
-$(document).ready(function() {
-    // Check for click events on the navbar burger icon
-    $(".navbar-burger").click(function() {
-        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-        $(".navbar-burger").toggleClass("is-active");
-        $(".navbar-menu").toggleClass("is-active");
-
+  // Function to find the nearest valid value
+  function findClosestValue(value) {
+    const validValues = Object.keys(imagePaths).map(Number);
+    let closest = validValues.reduce(function(prev, curr) {
+      return (Math.abs(curr - value) < Math.abs(prev - value) ? curr : prev);
     });
-
-    var options = {
-        slidesToScroll: 1,
-        slidesToShow: 3,
-        loop: true,
-        infinite: true,
-        autoplay: false,
-        autoplaySpeed: 3000,
-    }
-
-    // Initialize all div with carousel class
-    var carousels = bulmaCarousel.attach('.carousel', options);
-
-    // Loop on each carousel initialized
-    for (var i = 0; i < carousels.length; i++) {
-        // Add listener to  event
-        carousels[i].on('before:show', state => {
-            console.log(state);
-        });
-    }
-
-    // Access to bulmaCarousel instance of an element
-    var element = document.querySelector('#my-element');
-    if (element && element.bulmaCarousel) {
-        // bulmaCarousel instance is available as element.bulmaCarousel
-        element.bulmaCarousel.on('before-show', function(state) {
-            console.log(state);
-        });
-    }
-
-    /*var player = document.getElementById('interpolation-video');
-    player.addEventListener('loadedmetadata', function() {
-      $('#interpolation-slider').on('input', function(event) {
-        console.log(this.value, player.duration);
-        player.currentTime = player.duration / 100 * this.value;
-      })
-    }, false);*/
-    // preloadInterpolationImages();
-
-    $('#interpolation-slider').on('input', function(event) {
-        setInterpolationImage(this.value);
-    });
-    setInterpolationImage(0);
-    $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
-
-    bulmaSlider.attach();
-
-})
+    return closest;
+  }
+});
