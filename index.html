@@ -110,7 +110,7 @@
                 </a>
               </span>
               <!-- Video Link. -->
-              <span class="link-block">
+              <!-- <span class="link-block">
                 <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -118,7 +118,7 @@
                   </span>
                   <span>Video</span>
                 </a>
-              </span>
+              </span> -->
               <!-- Code Link. -->
               <span class="link-block">
                 <a href=""
@@ -188,48 +188,56 @@
             <source src="./static/cropped_videos/connector_base.mp4"
                     type="video/mp4">
           </video>
+          <center><p class="caption">pick up the usb dongle</p></center>
         </div>
         <div class="item item-chair-tp">
           <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
             <source src="./static/cropped_videos/connector_cable.mp4"
                     type="video/mp4">
           </video>
+          <center><p class="caption">push in the connector</p></center>
         </div>
         <div class="item item-shiba">
           <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
             <source src="./static/cropped_videos/mug_handle.mp4"
                     type="video/mp4">
           </video>
+          <center><p class="caption">pick up the mug</p></center>
         </div>
         <div class="item item-fullbody">
           <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
             <source src="./static/cropped_videos/mug_top.mp4"
                     type="video/mp4">
           </video>
+          <center><p class="caption">hand over the mug</p></center>
         </div>
         <div class="item item-blueshirt">
           <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
             <source src="./static/cropped_videos/winebottle_base.mp4"
                     type="video/mp4">
           </video>
+          <center><p class="caption">pick up the wine bottle</p></center>
         </div>
         <div class="item item-mask">
           <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
             <source src="./static/cropped_videos/winebottle_top.mp4"
                     type="video/mp4">
           </video>
+          <center><p class="caption">uncork the wine</p></center>
         </div>
         <div class="item item-coffee">
           <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
             <source src="./static/cropped_videos/pan_handle.mp4"
                     type="video/mp4">
           </video>
+          <center><p class="caption">pick up the saucepan</p></center>
         </div>
         <div class="item item-toby">
           <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
             <source src="./static/cropped_videos/pan_top.mp4"
                     type="video/mp4">
           </video>
+          <center><p class="caption">open the saucepan</p></center>
         </div>
       </div>
     </div>
@@ -257,24 +265,28 @@
             <source src="./static/cropped_videos/bulb.mp4"
                     type="video/mp4">
           </video>
+          <!-- <center><p class="caption">Caption for Video 1</p></center> -->
         </div>
         <div class="item item-chair-tp">
           <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
             <source src="./static/cropped_videos/sunglasses.mp4"
                     type="video/mp4">
           </video>
+          <!-- <center><p class="caption">Caption for Video 1</p></center> -->
         </div>
         <div class="item item-shiba">
           <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
             <source src="./static/cropped_videos/martiniglass.mp4"
                     type="video/mp4">
           </video>
+          <!-- <center><p class="caption">pick up the martini glass</p></center> -->
         </div>
         <div class="item item-fullbody">
           <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
             <source src="./static/cropped_videos/winebottle_base.mp4"
                     type="video/mp4">
           </video>
+          <!-- <center><p class="caption">Caption for Video 1</p></center> -->
         </div>
       </div>
     </div>
@@ -374,9 +386,9 @@
         <center>
         <div class="content has-text-justified">
           <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
+            Selecting an appropriate decomposition is key to meaningful part-level semantic and task-utility reasoning. 
+            The slider shows decomposition results at different thresholds on the "sunglasses" object. 
+            At our heuristic selected threshold, the assigned semantic labels and selected part are aligned with the ground truth.          
           </p>
         </div>
         <div class="columns is-vcentered interpolation-panel">
@@ -412,18 +424,67 @@
   </div>
 </section>
 
-<!-- 
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Affordance Prediction</h2>
+        <div class="content has-text-justified">
+          <div class="columns is-multiline is-centered">
+            <div class="column is-full">
+              <div class="columns is-centered">
+                <div class="column is-one-third">
+                  <img src="static/affordance/black_sunglasses_affordance.png" alt="Image 1" width="100%">
+                </div>
+                <div class="column is-one-third">
+                  <img src="static/affordance/lollipop_affordance.png" alt="Image 2" width="100%">
+                </div>
+                <div class="column is-one-third">
+                  <img src="static/affordance/mug_affordance.png" alt="Image 3" width="100%">
+                </div>
+              </div>
+            </div>
+            <div class="column is-full">
+              <div class="columns is-centered">
+                <div class="column is-one-third">
+                  <img src="static/affordance/soldering_iron_affordance.png" alt="Image 4" width="100%">
+                </div>
+                <div class="column is-one-third">
+                  <img src="static/affordance/spoon_affordance.png" alt="Image 5" width="100%">
+                </div>
+                <div class="column is-one-third">
+                  <img src="static/affordance/steak_knife_affordance.png" alt="Image 6" width="100%">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end of columns -->
+          <p>
+            Understanding the affordances and properties of objects and parts is important in the task-oriented part selection. 
+            Here, we ask the LLM affordance-based questions that it responds using our object graph.         
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
-}</code></pre>
+    <pre><code>
+      @inproceedings{Li2024ShapeGraspZT,
+        title={ShapeGrasp: Zero-Shot Task-Oriented Grasping with Large Language Models through Geometric Decomposition},
+        author={Samuel Li and Sarthak Bhagat and Joseph Campbell and Yaqi Xie and Woojun Kim and Katia P. Sycara and Simon Stepputtis},
+        year={2024},
+      }
+    </code></pre>
   </div>
-</section> -->
+</section>
 
 
 <!-- <footer class="footer">
