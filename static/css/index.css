@@ -155,28 +155,3 @@ body {
 #interpolation-image-wrapper img {
   border-radius: 5px;
 }
-
-.sample-video {
-  display: block;
-  margin: 0 auto; /* This centers the images within their parent columns */
-}
-
-.slider-container {
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
-  margin-bottom: 50px; /* Adjust this value as needed */
-}
-
-.slider {
-  width: 50%;
-}
-
-#sliderImage {
-  width: 30%;
-  display: block;
-  /* margin: 20px auto; */
-  margin-top: 10px; /* Adjust this value as needed */
-  margin-left: 100px;
-}
-

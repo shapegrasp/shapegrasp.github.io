@@ -1,376 +1,462 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <meta name="description" content="ShapeGrasp: Zero-Shot Object Grasping with Large Language Models via Shape Affordance Reasoning">
-    <meta name="keywords" content="Grasping, Novel Objects, 3D, Large Language Models, Affordance, Reasoning, Zero-Shot">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ShapeGrasp: Zero-Shot Object Grasping with Large Language Models via Shape Affordance Reasoning</title>
-    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-    <link rel="stylesheet" href="./static/css/bulma.min.css">
-    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-    <link rel="stylesheet" href="./static/css/index.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script defer src="./static/js/fontawesome.all.min.js"></script>
-    <script src="./static/js/bulma-carousel.min.js"></script>
-    <script src="./static/js/bulma-slider.min.js"></script>
-    <script src="./static/js/index.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="ShapeGrasp: Zero-Shot Object Manipulation with Large Language Models through Geometric Decomposition">
+  <meta name="keywords" content="Grasping, Novel Objects, 3D, Large Language Models, Affordance, Reasoning, Zero-Shot">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ShapeGrasp: Zero-Shot Object Manipulation with Large Language Models through Geometric Decomposition</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
 </head>
-
 <body>
-    <section class="hero">
-        <div class="hero-body">
-            <div class="container is-max-desktop">
-                <div class="columns is-centered">
-                    <div class="column has-text-centered">
-                        <h1 class="title is-1 publication-title"><i>ShapeGrasp:</i> Zero-Shot Object Grasping with Large Language Models via Shape Affordance Reasoning</h1>
-                        <div class="is-size-5 publication-authors">
-                            <span class="author-block"><a href="">Anonymous Authors</a></span>
-                        </div>
-                        <div class="is-size-5 publication-authors">
-                            <span class="author-block">Anonymous Organization</span>
-                        </div>
-                        <div class="column has-text-centered">
-                            <div class="publication-links">
-                                
-                                <span class="link-block">
-                                    <a href=""
-                                        class="external-link button is-normal is-rounded is-dark">
-                                        <span class="icon">
-                                            <i class="fab fa-github"></i>
-                                        </span>
-                                <span>Code [Coming Soon]</span>
-                                </a>
-                                </span>
-                            
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
         </div>
+      </div>
+    </div>
+
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">ShapeGrasp: Zero-Shot Object Manipulation with LLMs through Geometric Decomposition</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://samwli.github.io/">Samuel Li</a>, <a href="https://sarthak268.github.io/">Sarthak Bhagat</a>, <a href="https://joe-campbell.github.io/website/">Joseph Campbell</a>, <a href="https://yaqi-xie.me/">Yaqi Xie</a>, <a href="https://sites.google.com/view/wjkim1202/">Woojun Kim</a>, <a href="https://en.wikipedia.org/wiki/Katia_Sycara">Katia Sycara</a>, <a href="https://simonstepputtis.com/">Simon Stepputtis</a></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">The Robotics Institute, Carnegie Mellon University</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          Task-oriented grasping of unfamiliar objects is a necessary skill for robots in dynamic in-home environments.
+          Inspired by the human capability to grasp such objects through intuition about their shape and structure, we present a novel zero-shot task-oriented grasping method leveraging a geometric decomposition of the target object into simple, convex shapes that we represent in a graph structure, including geometric attributes and spatial relationships. 
+          Our approach employs minimal essential information -- the object's name and the intended task -- to facilitate zero-shot task-oriented grasping. 
+          We utilize the commonsense reasoning capabilities of large language models to dynamically assign semantic meaning to each decomposed part and subsequently reason over the utility of each part for the intended task.
+          Through extensive experiments on a real-world robotics platform, we demonstrate that our grasping approach's decomposition and reasoning pipeline is capable of selecting the correct part in 92% of the cases and successfully grasping the object in 82% of the tasks we evaluate.
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Approach</h2>
+        <img src="static/images/overview.png" alt="Methodology figure" width="600">
+        <div class="content has-text-justified">
+          Given a target object, our RGB+D-based pipeline decomposes the object into approximate convex parts. We propose a heuristic approach to select a suitable decomposition that we then convert into a graph that captures the object's composition. Each decomposed part is approximated as a basic shape and represented as a node in the graph with geometric and color attributes. Edges within the graph are drawn between nodes whose parts are connected in the segmentation. Finally, an LLM is utilized for a two-stage reasoning process. First, the LLM reasons about the semantic significance of each node in the graph and assigns part labels. Then, using this semantic reasoning and the desired task, the LLM reasons about the task-utility of each part before selecting the most appropriate part for the robot to grasp.
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<center>
+  <h2 class="title is-3">Multiple Task Oriented Grasps</h2>
+</center>
+
+<br>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel1 results-carousel1">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/cropped_videos/connector_base.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/cropped_videos/connector_cable.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/cropped_videos/mug_handle.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/cropped_videos/mug_top.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/cropped_videos/winebottle_base.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/cropped_videos/winebottle_top.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/cropped_videos/pan_handle.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/cropped_videos/pan_top.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<br>
+
+<center>
+<h2 class="title is-3">Single Task Oriented Grasps</h2>
+</center>
+
+<br>
+
+<center>
+<h3 class="title is-4">Fragile Objects</h3>
+</center>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/cropped_videos/bulb.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/cropped_videos/sunglasses.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/cropped_videos/martiniglass.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/cropped_videos/winebottle_base.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<br>
+
+<center>
+<h3 class="title is-4">Tools</h3>
+</center>
+
+<section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/cropped_videos/hammer.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-chair-tp">
+            <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/cropped_videos/corkscrew.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-shiba">
+            <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/cropped_videos/screwdriver.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-fullbody">
+            <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/cropped_videos/soldering.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <br>
+
+  <center>
+  <h3 class="title is-4">Unusual Objects</h3>
+  </center>
+  
+  <section class="hero is-light is-small">
+      <div class="hero-body">
+        <div class="container">
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item item-steve">
+              <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/cropped_videos/tissue.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-chair-tp">
+              <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/cropped_videos/flower.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-shiba">
+              <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/cropped_videos/extension.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+            <div class="item item-fullbody">
+              <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/cropped_videos/measuringtape.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="section">
-        <div class="container is-max-desktop">
+<section class="section">
+  <div class="container is-max-desktop">
 
-            <!-- Abstract. -->
-            <div class="columns is-centered has-text-centered">
-                <div class="column is-four-fifths">
-                    <h2 class="title is-3">Abstract</h2>
-                    <div class="content has-text-justified">
-                        <p>
-                            Grasping unfamiliar objects is a necessary skill for robots in dynamic in-home environments.
-                            Inspired by the human capability to grasp unfamiliar objects through intuition about their shape and structure, we present a novel zero-shot grasping method based on geometric shape decomposition.
-                            Unlike prior methods which require additional semantic information about the target object, e.g., its name or affordance, our approach decomposes objects into a graph consisting of geometric shapes and spatial relationships.
-                            Given an object's graph, we leverage the commonsense reasoning abilities of large language models to identify an area suitable for grasping based on the object's structure.
-                            Through extensive experiments in simulation and on a real-world platform, we demonstrate that our zero-shot grasping approach 
-                            is capable of picking objects by reasoning over their convex geometric decomposition, resulting in a success rate of 92%.  
-                        </p>
-                    </div>
-                </div>
-            </div>
+    <div class="columns is-centered">
 
+    <!-- Animation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <!-- <h2 class="title is-3">Animation</h2> -->
+
+        <!-- Interpolating. -->
+        <h3 class="title is-4">Varying Threshold</h3>
+        <center>
+        <div class="content has-text-justified">
+          <p>
+            We can also animate the scene by interpolating the deformation latent codes of two input
+            frames. Use the slider here to linearly interpolate between the left frame and the right
+            frame.
+          </p>
         </div>
-    </section>
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column is-3 has-text-centered">
+            <img src="./static/slider_img/black_sunglasses1_3d_object_0.2.png"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+            <p>Selected Threshold</p>
+          </div>
+          <div class="column interpolation-video-column">
+            <div id="interpolation-image-wrapper">
+              Loading...
+            </div>
+            <input class="slider is-fullwidth is-large is-info"
+                   id="interpolation-slider"
+                   step="1" min="0" max="100" value="0" type="range">
+          </div>
+          <div class="column is-3 has-text-centered">
+            <img src="./static/slider_img/sunglasses_grasp.jpg"
+                 class="interpolation-image"
+                 alt="Interpolation end reference image."/>
+            <p class="is-bold">Final Grasping Attempt</p>
+          </div>
+        </div>
+        </center>
+        <br/>
+        <!--/ Interpolating. -->
 
-    <section class="section">
-        <div class="container is-max-desktop content">
+      </div>
+    </div>
+    <!--/ Animation. -->
 
-            <div class="rows">
+  </div>
+</section>
 
-                <div class="rows is-centered ">
-                    <di v class="row is-full-width">
 <!-- 
-                        <h2 class="title is-3"><span class="dcliport">Section </span></h2>
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section> -->
 
-                        <div class="content has-text-justified">
-                            <p>
-                                description
-                            </p>
-                        </div> -->
 
-                        <section class="section">
-                            <div class="container">
-                              <div class="columns is-centered">
-                                <div class="column is-full-width">
-                                  <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Fragile Objects</h2>
-                                  <tr>
-                                    <td>
-                                      <div class="row">
-                                        <div class="columns is-centered">
-                                          <div class="col" style="margin-right: 20px;">
-                                              <video playsinline autoplay loop muted src="./static/cropped_videos/bulb.mp4" style="border-radius: 10px;"></video>
-                                              <center><div class="caption">Pick up the light bulb.</div></center>
-                                          </div>
-                                          <div class="col" style="margin-right: 20px;">
-                                            <video playsinline autoplay loop muted src="./static/cropped_videos/sunglasses.mp4" style="border-radius: 10px;"></video>
-                                            <center><div class="caption">Wear the black sunglasses.</div></center>
-                                          </div>
-                                          <div class="col" style="margin-right: 20px;">
-                                            <video playsinline autoplay loop muted src="./static/cropped_videos/martiniglass.mp4" style="border-radius: 10px;"></video>
-                                            <center><div class="caption">Pick up the green martini glass.</div></center>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <br>
-                                    </td>
-                                  </tr>
-                                </div> 
-                              </div>
-                            </div>
-                          </section>
-
-                          <section class="section">
-                            <div class="container">
-                              <div class="columns is-centered">
-                                <div class="column is-full-width">
-                                  <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Tools</h2>
-                                  <tr>
-                                    <td>
-                                      <div class="row">
-                                        <div class="columns is-centered">
-                                          <div class="col" style="margin-right: 20px;">
-                                              <video playsinline autoplay loop muted src="./static/cropped_videos/hammer.mp4" style="border-radius: 10px;"></video>
-                                              <center><div class="caption">Swing the hammer.</div></center>
-                                          </div>
-                                          <div class="col" style="margin-right: 20px;">
-                                            <video playsinline autoplay loop muted src="./static/cropped_videos/corkscrew.mp4" style="border-radius: 10px;"></video>
-                                            <center><div class="caption">Pick up the corkscrew.</div></center>
-                                          </div>
-                                          <!-- <div class="col" style="margin-right: 20px;">
-                                            <video playsinline autoplay loop muted src="./static/cropped_videos/screwdriver.mp4" style="border-radius: 10px;"></video>
-                                            <center><div class="caption">Pick up the screwdriver.</div></center>
-                                          </div>
-                                          <div class="col" style="margin-right: 20px;">
-                                            <video playsinline autoplay loop muted src="./static/cropped_videos/soldering.mp4" style="border-radius: 10px;"></video>
-                                            <center><div class="caption">Pick up the soldering iron.</div></center>
-                                          </div> -->
-                                        </div>
-                                      </div>
-                                      <br>
-                                    </td>
-                                  </tr>
-                                </div> 
-                              </div>
-                            </div>
-                          </section>
-
-                          <section class="section">
-                            <div class="container">
-                              <div class="columns is-centered">
-                                <div class="column is-full-width">
-                                  <!-- <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Tools</h2> -->
-                                  <tr>
-                                    <td>
-                                      <div class="row">
-                                        <div class="columns is-centered">
-                                          <!-- <div class="col" style="margin-right: 20px;">
-                                              <video playsinline autoplay loop muted src="./static/cropped_videos/hammer.mp4" style="border-radius: 10px;"></video>
-                                              <center><div class="caption">Swing the hammer.</div></center>
-                                          </div>
-                                          <div class="col" style="margin-right: 20px;">
-                                            <video playsinline autoplay loop muted src="./static/cropped_videos/corkscrew.mp4" style="border-radius: 10px;"></video>
-                                            <center><div class="caption">Pick up the corkscrew.</div></center>
-                                          </div> -->
-                                          <div class="col" style="margin-right: 20px;">
-                                            <video playsinline autoplay loop muted src="./static/cropped_videos/screwdriver.mp4" style="border-radius: 10px;"></video>
-                                            <center><div class="caption">Pick up the screwdriver.</div></center>
-                                          </div>
-                                          <div class="col" style="margin-right: 20px;">
-                                            <video playsinline autoplay loop muted src="./static/cropped_videos/soldering.mp4" style="border-radius: 10px;"></video>
-                                            <center><div class="caption">Pick up the soldering iron.</div></center>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <br>
-                                    </td>
-                                  </tr>
-                                </div> 
-                              </div>
-                            </div>
-                          </section>
-
-                          <section class="section">
-                            <div class="container">
-                              <div class="columns is-centered">
-                                <div class="column is-full-width">
-                                  <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Multiple Grasps</h2>
-                                  <tr>
-                                    <td>
-                                      <div class="row">
-                                        <div class="columns is-centered">
-                                          <div class="col" style="margin-right: 20px;">
-                                              <video playsinline autoplay loop muted src="./static/cropped_videos/connector_base.mp4" style="border-radius: 10px;"></video>
-                                              <center><div class="caption">Pick up the USB dongle.</div></center>
-                                          </div>
-                                          <div class="col" style="margin-right: 20px;">
-                                            <video playsinline autoplay loop muted src="./static/cropped_videos/connector_cable.mp4" style="border-radius: 10px;"></video>
-                                            <center><div class="caption">Push in the connector.</div></center>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <br>
-                                    </td>
-                                  </tr>
-                                  <br>
-                                  <tr>
-                                    <td>
-                                      <div class="row">
-                                        <div class="columns is-centered">
-                                          <div class="col" style="margin-right: 20px;">
-                                              <video playsinline autoplay loop muted src="./static/cropped_videos/mug_handle.mp4" style="border-radius: 10px;"></video>
-                                              <center><div class="caption">Pick up the mug.</div></center>
-                                          </div>
-                                          <div class="col" style="margin-right: 20px;">
-                                            <video playsinline autoplay loop muted src="./static/cropped_videos/mug_top.mp4" style="border-radius: 10px;"></video>
-                                            <center><div class="caption">Hand over the mug.</div></center>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <br>
-                                    </td>
-                                  </tr>
-                                  <br>
-                                  <tr>
-                                    <td>
-                                      <div class="row">
-                                        <div class="columns is-centered">
-                                          <div class="col" style="margin-right: 20px;">
-                                              <video playsinline autoplay loop muted src="./static/cropped_videos/winebottle_base.mp4" style="border-radius: 10px;"></video>
-                                              <center><div class="caption">Pick up the wine bottle.</div></center>
-                                          </div>
-                                          <div class="col" style="margin-right: 20px;">
-                                            <video playsinline autoplay loop muted src="./static/cropped_videos/winebottle_top.mp4" style="border-radius: 10px;"></video>
-                                            <center><div class="caption">Uncork the wine.</div></center>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <br>
-                                    </td>
-                                  </tr>
-                                  <br>
-                                  <tr>
-                                    <td>
-                                      <div class="row">
-                                        <div class="columns is-centered">
-                                          <div class="col" style="margin-right: 20px;">
-                                              <video playsinline autoplay loop muted src="./static/cropped_videos/pan_handle.mp4" style="border-radius: 10px;"></video>
-                                              <center><div class="caption">Pick up the saucepan.</div></center>
-                                          </div>
-                                          <div class="col" style="margin-right: 20px;">
-                                            <video playsinline autoplay loop muted src="./static/cropped_videos/pan_top.mp4" style="border-radius: 10px;"></video>
-                                            <center><div class="caption">Open the saucepan.</div></center>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <br>
-                                    </td>
-                                  </tr>
-                                </div> 
-                              </div>
-                            </div>
-                          </section>
-
-                          <section class="section">
-                            <div class="container">
-                              <div class="columns is-centered">
-                                <div class="column is-full-width">
-                                  <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Unusual Objects</h2>
-                                  <tr>
-                                    <td>
-                                      <div class="row">
-                                        <div class="columns is-centered">
-                                          <div class="col" style="margin-right: 20px;">
-                                              <video playsinline autoplay loop muted src="./static/cropped_videos/tissue.mp4" style="border-radius: 10px;"></video>
-                                              <center><div class="caption">Dispense a tissue.</div></center>
-                                          </div>
-                                          <div class="col" style="margin-right: 20px;">
-                                            <video playsinline autoplay loop muted src="./static/cropped_videos/flower.mp4" style="border-radius: 10px;"></video>
-                                            <center><div class="caption">Give the red rose.</div></center>
-                                          </div>
-                                          <!-- <div class="col" style="margin-right: 20px;">
-                                            <video playsinline autoplay loop muted src="./static/cropped_videos/extension.mp4" style="border-radius: 10px;"></video>
-                                            <center><div class="caption">Pick up the power strip.</div></center>
-                                          </div>
-                                          <div class="col" style="margin-right: 20px;">
-                                            <video playsinline autoplay loop muted src="./static/cropped_videos/measuringtape.mp4" style="border-radius: 10px;"></video>
-                                            <center><div class="caption">Pick up the tape measure.</div></center>
-                                          </div> -->
-                                        </div>
-                                      </div>
-                                      <br>
-                                    </td>
-                                  </tr>
-                                </div> 
-                              </div>
-                            </div>
-                          </section>
-
-                          <section class="section">
-                            <div class="container">
-                              <div class="columns is-centered">
-                                <div class="column is-full-width">
-                                  <!-- <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Unusual Objects</h2> -->
-                                  <tr>
-                                    <td>
-                                      <div class="row">
-                                        <div class="columns is-centered">
-                                          <!-- <div class="col" style="margin-right: 20px;">
-                                              <video playsinline autoplay loop muted src="./static/cropped_videos/tissue.mp4" style="border-radius: 10px;"></video>
-                                              <center><div class="caption">Dispense a tissue.</div></center>
-                                          </div>
-                                          <div class="col" style="margin-right: 20px;">
-                                            <video playsinline autoplay loop muted src="./static/cropped_videos/flower.mp4" style="border-radius: 10px;"></video>
-                                            <center><div class="caption">Give the red rose.</div></center>
-                                          </div> -->
-                                          <div class="col" style="margin-right: 20px;">
-                                            <video playsinline autoplay loop muted src="./static/cropped_videos/extension.mp4" style="border-radius: 10px;"></video>
-                                            <center><div class="caption">Pick up the power strip.</div></center>
-                                          </div>
-                                          <div class="col" style="margin-right: 20px;">
-                                            <video playsinline autoplay loop muted src="./static/cropped_videos/measuringtape.mp4" style="border-radius: 10px;"></video>
-                                            <center><div class="caption">Pick up the tape measure.</div></center>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <br>
-                                    </td>
-                                  </tr>
-                                </div> 
-                              </div>
-                            </div>
-                          </section>
-
-                          <section class="section">
-                            <div class="container">
-                              <div class="columns is-centered">
-                                <div class="column is-full-width">
-                                  <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Varying Threshold</h2>
-                                    
-                                  <div class="slider-container">
-                                    <input type="range" min="1" max="100" value="1" class="slider" id="myRange">
-                                    <img src="./static/slider_img/black_sunglasses1_3d_object_0.01.png" id="sliderImage" alt="Slider Image">
-                                  </div>
-
-                                </div> 
-                              </div>
-                            </div>
-                          </section>
-                    </div>
-                </div>
-            </div>
+<!-- <footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
         </div>
+      </div>
+    </div>
+  </div>
+</footer> -->
 
-    </section>
-
-    <script src="static/js/index.js"></script>
 </body>
-
 </html>
