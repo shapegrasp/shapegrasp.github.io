@@ -1,14 +1,53 @@
 window.HELP_IMPROVE_VIDEOJS = false;
 
-var INTERP_BASE = "./static/interpolation/stacked";
-var NUM_INTERP_FRAMES = 240;
+const IMAGE_BASE = "./static/slider_img/";
+const NUM_INTERP_FRAMES = 100
+
+const imagePaths = {
+    100: "black_sunglasses1_3d_object_1.png",
+    90: "black_sunglasses1_3d_object_0.9.png",
+    70: "black_sunglasses1_3d_object_0.7.png",
+    55: "black_sunglasses1_3d_object_0.55.png",
+    20: "black_sunglasses1_3d_object_0.2.png",
+    15: "black_sunglasses1_3d_object_0.15.png",
+    10: "black_sunglasses1_3d_object_0.1.png",
+    5: "black_sunglasses1_3d_object_0.05.png",
+    1: "black_sunglasses1_3d_object_0.01.png",
+};
 
 var interp_images = [];
+
 function preloadInterpolationImages() {
   for (var i = 0; i < NUM_INTERP_FRAMES; i++) {
-    var path = INTERP_BASE + '/' + String(i).padStart(6, '0') + '.jpg';
+    var path = IMAGE_BASE + getImagePath(i);
     interp_images[i] = new Image();
     interp_images[i].src = path;
+  }
+}
+
+function getImagePath(value) {
+  // Define your custom logic to determine the image path based on the value
+  if (value >= 0 && value <= 1) {
+    return imagePaths[1];
+  } else if (value >= 1 && value <= 5) {
+    return imagePaths[1];
+  } else if (value > 5 && value <= 10) {
+    return imagePaths[10];
+  } else if (value > 10 && value <= 15) {
+    return imagePaths[15];
+  } else if (value > 15 && value <= 20) {
+    return imagePaths[20];
+  } else if (value > 20 && value <= 55) {
+    return imagePaths[55];
+  } else if (value > 55 && value <= 70) {
+    return imagePaths[70];
+  } else if (value > 70 && value <= 90) {
+    return imagePaths[90];
+  } else if (value > 90 && value <= 100) {
+    return imagePaths[100];
+  } else {
+    // Handle cases beyond the defined ranges
+    return ""; // or any default path you prefer
   }
 }
 
